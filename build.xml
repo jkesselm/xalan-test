@@ -90,9 +90,15 @@ dependencies - users must manually 'build jar' first.
     <property name="testxsl.jar" value="${test.build.dir}/${testxsl.jar.name}"/>
     <property name="qetest.jar" value="${test.build.dir}/${qetest.jar.name}"/>
 	
+    <!-- Tools factored out of the Maven build of Xalan-Java, but which the
+	 Ant build of Xalan-Test sill requires. We have relocated them from
+	 xalan-java/lib to xalan-test/lib. to handle that. -->
+    <property name="test.lib.dir" value="./lib"/>  
+    <property name="xml-apis.jar" value="${test.lib.dir}/xml-apis.jar"/>
+    <property name="parserjar" value="${test.lib.dir}/xercesImpl.jar"/>
+
     <!-- Specific locations related to Xalan code, which should be in a sister tree to us -->
     <property name="xalan.relpath" value="../xalan-java"/>    
-    <property name="xalan.lib.dir" value="${xalan.relpath}/lib"/>  
     <property name="xalan.tools.dir" value="${xalan.relpath}/tools"/>       
     <property name="xalan.build.dir" value="${xalan.relpath}/build"/> 
     <property name="xalan.xdocs.dir" value="${xalan.relpath}/xdocs"/>
@@ -104,8 +110,6 @@ dependencies - users must manually 'build jar' first.
               value="${xalan.build.dir}/xalan-unbundled.jar"/>
     <property name="xsltc.jar" value="${xalan.build.dir}/xsltc.jar"/>
     <property name="ser.jar" value="${xalan.build.dir}/serializer.jar"/>
-    <property name="xml-apis.jar" value="${xalan.lib.dir}/xml-apis.jar"/>
-    <property name="parserjar" value="${xalan.lib.dir}/xercesImpl.jar"/>
 
     <!-- JTidy is used by the XSLTC comparator -->
     <!--<property name="jtidy.jar" value="${test.tools.dir}/Tidy.jar"/>-->

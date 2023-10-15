@@ -59,7 +59,10 @@ set _CLASSPATH=%_CLASSPATH%;%_ANT_JARS%
 
 set XALAN_BUILD_DIR_PATH=..\xalan-java\build;..\build
 
-set XERCES_ENDORSED_DIR_PATH=..\xalan-java\lib\endorsed;..\lib\endorsed
+# NOTE: As part of Mavenizing the Xalan build, xalan-java/lib has Gone Away.
+# Instead we have moved it into xalan-test. It will be eliminated here too
+# when xalan-test is Mavenized.
+set XERCES_ENDORSED_DIR_PATH=./lib/endorsed;../xalan-java/lib/endorsed:../lib/endorsed;
 
 @echo on
 "%_JAVACMD%" -mx1024m -Djava.endorsed.dirs=%XALAN_BUILD_DIR_PATH%;%XERCES_ENDORSED_DIR_PATH% -classpath "%_CLASSPATH%" org.apache.tools.ant.Main %ANT_CMD_LINE_ARGS%
