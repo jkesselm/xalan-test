@@ -939,6 +939,10 @@ dependencies - users must manually 'build jar' first.
         <echo message=" [minitest] Please fix any smoketest problems before checking in!" />
         <fail message="Please fix any smoketest problems before checking in!" />
     </target>
+
+    <target name="api">
+        <echo message="KNOWN ISSUE: target 'api' implementation missing"/>
+    </target>
     
     <target name="smoketest-pass" if="smoketest-passed">
         <echo message=" [minitest] CONGRATULATIONS! The Smoketest passed!" />        
